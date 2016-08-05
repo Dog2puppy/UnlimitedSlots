@@ -1,0 +1,2 @@
+maxPlayers: "120"
+# The maximum amount of players before it stops allowing more players. Should be near the max, but not to close! For true unlimited, just make it Somthing like 9999999999. 
