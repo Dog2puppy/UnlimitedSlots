@@ -4,6 +4,7 @@ namespace Gumbratt\UnlimitedSlots;
 use pocketmine\plugin\PluginBase as Plugin;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerKickEvent;
+use pocketmine\utils\TextFormat as Color;
 			
 	class Main extends Plugin implements Listener {
 		public function onEnable() {
