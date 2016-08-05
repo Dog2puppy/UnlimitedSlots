@@ -13,6 +13,8 @@ use pocketmine\event\player\PlayerKickEvent;
 		
 		public function onPlayerKick(PlayerKickEvent $event) {
 			if($event->getReason() === "disconnectionScreen.serverFull")
+                                $player=$event->getPlayer();
+                                $player->sendMessage(Color::PURPLE."The server currently has more players than it can hold. The server may become unstable or crash.");
 				$event->setCancelled(true);
 		}
 		
