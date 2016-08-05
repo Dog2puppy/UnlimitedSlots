@@ -9,11 +9,15 @@ use pocketmine\utils\TextFormat as Color;
 	class Main extends Plugin implements Listener {
 		public function onEnable() {
 			$this->getServer()->getPluginManager()->registerEvents($this, $this);
+                        $this->saveDefaultConfig();
+                        $this->reloadConfig();
 			$this->getServer()->getLogger()->info("Unlimited Enabled!");
 		}
 		
 		public function onPlayerKick(PlayerKickEvent $event) {
-			if($event->getReason() === "disconnectionScreen.serverFull")
+                        $playersOnline=count($server->getOnlinePlayers());
+                        $config=$this->getConfig();
+			if($event->getReason() === "disconnectionScreen.serverFull" && $config->get("MaxPlayers") >== $playersOnline)
                                 $player=$event->getPlayer();
                                 $player->sendMessage(Color::PURPLE."The server currently has more players than it can hold. The server may become unstable or crash.");
 				$event->setCancelled(true);
