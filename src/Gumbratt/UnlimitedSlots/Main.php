@@ -17,7 +17,7 @@ use pocketmine\utils\TextFormat as Color;
 		public function onPlayerKick(PlayerKickEvent $event) {
                         $playersOnline=count($server->getOnlinePlayers());
                         $config=$this->getConfig();
-			if($event->getReason() === "disconnectionScreen.serverFull" && $config->get("maxPlayers") >== $playersOnline)
+			if($event->getReason() === "disconnectionScreen.serverFull" && $config->get("maxPlayers") > $playersOnline)
                                 $player=$event->getPlayer();
                                 $player->sendMessage(Color::PURPLE."The server currently has more players than it can hold. The server may become unstable or crash.");
 				$event->setCancelled(true);
